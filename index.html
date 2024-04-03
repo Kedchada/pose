@@ -2,27 +2,29 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Sign Language Recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Pose)Sign Language Recognition</title>
 <style>
 .one{
     color: white;
     text-align: center;
-    font-size: xx-large;
+    font-size: 35px;
 }
 .two{
     color:white;
     text-align: center;
-    font-size: x-large;
+    font-size: 30px;
 }
 .text-center{
     text-align: center;
 }
 button{
     width: 7%;
-    height: 30px;
+    height: 35px;
     background-color: rgb(254, 254, 117);
     border-color: yellow;
     color: black;
+    border-radius: 5px;
     font-size: larger;
 }
 canvas{position: absolute;
@@ -33,7 +35,7 @@ canvas{position: absolute;
             text-align: center;
             margin-top: 10px;
             color: white;
-        }
+}
 </style>
 </head>
 <body style="background-color: #E63F12">
@@ -41,6 +43,7 @@ canvas{position: absolute;
     <br><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXroKqbBqNeExiSXDDfpNBgHTzrJwLuGEZ5bGCC4fegg&s" width="120px" height="120px"
     <br><h1 class="one">Thai Sign Language Classification using Machine Learning</h1> 
     <h2 class="two">2B KMUTT 18th Future Leader Camp</h2>
+    <div class="container">
     <div class="text-center">
         <button type="button" onclick="init()">Start</button>
     </div>
@@ -49,6 +52,7 @@ canvas{position: absolute;
     <div id="result-container" style="float: left; margin-left: 10px; width: 390px; height: 400px; overflow-y: auto;"></div>
     </div>
 <div id="label-container"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
 <script type="text/javascript">
@@ -115,9 +119,11 @@ canvas{position: absolute;
                 prediction[maxIndex].className + ": " + prediction[maxIndex].probability.toFixed(2);
             labelContainer.innerHTML = classPrediction;
         }
+    
         
         drawPose(pose);
     }
+
 
     function drawPose(pose) {
         if (webcam.canvas) {
@@ -130,6 +136,7 @@ canvas{position: absolute;
             }
         }
     }
+
 </script>
 </body>
 </html>
